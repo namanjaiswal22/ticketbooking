@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+    
+
+  
+  <main>
+  
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Create / Book Events in Seconds</h1>
+          <p class="lead text-muted">
+        Create and Book Event in with a click.
+        </p>
+          <p>
+            <a href="eventregister" class="btn btn-primary my-2">Create an Event</a>
+           
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <div class="album py-5 bg-light">
+        <section class="py-2 text-center container"> <h1 class="fw-light">Lastest Events</h1></section>
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for event in eventdata %}
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" src="https://source.unsplash.com/random/?event,lights,stage">
+  
+              <div class="card-body">
+                <p class="card-text">Event Name :{{event.name}}</p>
+                <p class="card-text">Event Description: {{event.desc}}</p>
+                <p class="card-text">Event Venue: {{event.venue}}</p>
+                <p class="card-text">Event Time: {{event.time}}</p>
+                <p class="card-text">Ticket Price: {{event.price}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    
+                    <a href="book/{{event.id}}" class="btn btn-sm btn-outline-secondary">Book</a>
+                  </div>
+                  
+                  <small class="text-muted">verfied </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+
+
+        </div>
+      </div>
+    </div>
+  
+  </main>
+  
+ 
+  
+  
+{% endblock %}

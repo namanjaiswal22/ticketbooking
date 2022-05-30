@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>All events</h2>
+
+{% for event in eventdata %}
+
+<br>
+<div>
+<a href="showoneevent/{{event.id}}" class="card my-2"> <h4>Name : {{event.name}}</h4> </a>
+<br>
+<a href="deleteevent/{{event.id}}" class="btn btn-danger">Delete this event</a>
+&nbsp;&nbsp;
+<a href="editevent/{{event.id}}" class="btn btn-primary">Edit this Event</a>
+</div>
+<br>
+
+<br>
+{% endfor %}
+
+{% endblock %}
